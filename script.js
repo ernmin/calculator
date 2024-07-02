@@ -17,17 +17,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function operate(operator, first, second){
         if(operator === 'plus'){
-            add(first, second);
+            return add(first, second);
         }
         else if(operator === 'minus'){
-            subtract(first, second);
+            return subtract(first, second);
         }
         else if(operator === 'times'){
-            multiply(first, second);
+            return multiply(first, second);
         }
         else if(operator === 'divide'){
-            divide(first, second);
+            return divide(first, second);
         }
+    }
+
+    function firstNumandOperator(){
+        first = displayNumber;
+        operator = this.id;
+        displayNumber = null;
     }
 
     let numberButtons = document.querySelectorAll(".number");
@@ -40,6 +46,9 @@ document.addEventListener('DOMContentLoaded', function() {
             text = i.toString();
             if(displayNumber === null){
                 displayNumber = text;
+            }
+            else if (first !== null && operator !== null){
+                displayNumber += text;
             }
             else{
                 displayNumber += text;
@@ -57,10 +66,20 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     
     let addOperator = document.querySelector('#plus');
-    addOperator.addEventListener('click', function() {
-        first = displayNumber;
-        operator = this.id;
-        displayNumber = null;
-        //displayNumber 
+    addOperator.addEventListener('click', firstNumandOperator);
+
+    let minusOperator = document.querySelector('#minus');
+    minusOperator.addEventListener('click', firstNumandOperator);
+
+    let multiplyOperator = document.querySelector('#times');
+    multiplyOperator.addEventListener('click', firstNumandOperator);
+
+    let divideOperator = document.querySelector('#divide');
+    divideOperator.addEventListener('click', firstNumandOperator);
+
+    let equal = document.querySelector('#equal');
+    equal.addEventListener('click', function(){
+        second = displayNumber;
+        alert(operate(operator, first, second));
     })
 });
