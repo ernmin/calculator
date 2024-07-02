@@ -31,7 +31,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function firstNumandOperator(){
-        first = displayNumber;
+        if (first === null){
+            first = displayNumber;
+        }
         operator = this.id;
         displayNumber = null;
     }
@@ -41,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let first = null;
     let second = null;
     let operator = null;
+    let input = null;
     for (let i = 0; i < numberButtons.length; i++){
         numberButtons[i].addEventListener('click', function() {
             text = i.toString();
@@ -53,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
             else{
                 displayNumber += text;
             }
-            let input = document.querySelector('.field');
+            input = document.querySelector('.field');
             input.textContent = displayNumber;
         })
     }
@@ -80,6 +83,13 @@ document.addEventListener('DOMContentLoaded', function() {
     let equal = document.querySelector('#equal');
     equal.addEventListener('click', function(){
         second = displayNumber;
-        alert(operate(operator, first, second));
+        displayNumber = operate(operator, first, second);
+        input = document.querySelector('.field');
+        input.textContent = displayNumber;
+        first = null;
+        displayNumber = null;
+        second = null;
+        operator = null;
+        input = null;
     })
 });
