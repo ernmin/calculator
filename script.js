@@ -16,22 +16,25 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function operate(operator, first, second){
-        if(operator === '+'){
+        if(operator === 'plus'){
             add(first, second);
         }
-        else if(operator === '-'){
+        else if(operator === 'minus'){
             subtract(first, second);
         }
-        else if(operator === '*'){
+        else if(operator === 'times'){
             multiply(first, second);
         }
-        else if(operator === '/'){
+        else if(operator === 'divide'){
             divide(first, second);
         }
     }
 
     let numberButtons = document.querySelectorAll(".number");
     let displayNumber = null;
+    let first = null;
+    let second = null;
+    let operator = null;
     for (let i = 0; i < numberButtons.length; i++){
         numberButtons[i].addEventListener('click', function() {
             text = i.toString();
@@ -51,5 +54,13 @@ document.addEventListener('DOMContentLoaded', function() {
         let input = document.querySelector('.field');
         displayNumber = null;
         input.textContent = '';
+    })
+    
+    let addOperator = document.querySelector('#plus');
+    addOperator.addEventListener('click', function() {
+        first = displayNumber;
+        operator = this.id;
+        displayNumber = null;
+        //displayNumber 
     })
 });
