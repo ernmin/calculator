@@ -31,11 +31,26 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function firstNumandOperator(){
-        if (first === null){
-            first = displayNumber;
+        if (result !== null){
+            first = result;
+            operator = this.id;
+            displayNumber = null;
         }
-        operator = this.id;
-        displayNumber = null;
+        else if (first === null){
+            first = displayNumber;
+            operator = this.id;
+            displayNumber = null;
+        }
+        else if (first !== null){
+            second = displayNumber;
+            operator = this.id;
+            first = operate(operator, first, second);
+            input = document.querySelector('.field');
+            input.textContent = first;
+            displayNumber = null;
+            second = null;
+        }
+        
     }
 
     let numberButtons = document.querySelectorAll(".number");
@@ -44,10 +59,12 @@ document.addEventListener('DOMContentLoaded', function() {
     let second = null;
     let operator = null;
     let input = null;
+    let result = null;
     for (let i = 0; i < numberButtons.length; i++){
         numberButtons[i].addEventListener('click', function() {
             text = i.toString();
-            if(displayNumber === null){
+            if(displayNumber === null || result !== null){
+                result = null;
                 displayNumber = text;
             }
             else if (first !== null && operator !== null){
@@ -64,8 +81,13 @@ document.addEventListener('DOMContentLoaded', function() {
     let clearField = document.querySelector('#AC');
     clearField.addEventListener('click', function() {
         let input = document.querySelector('.field');
+        input.textContent = ''
+        first = null;
         displayNumber = null;
-        input.textContent = '';
+        second = null;
+        operator = null;
+        input = null;
+        result = null;
     })
     
     let addOperator = document.querySelector('#plus');
@@ -86,6 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
         displayNumber = operate(operator, first, second);
         input = document.querySelector('.field');
         input.textContent = displayNumber;
+        result = displayNumber;
         first = null;
         displayNumber = null;
         second = null;
