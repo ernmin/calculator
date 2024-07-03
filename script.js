@@ -30,7 +30,24 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function firstNumandOperator(){
+    function resetAllexceptresult(){
+        first = null;
+        displayNumber = null;
+        second = null;
+        operator = null;
+        input = null;
+    }
+
+    function equals(){
+        second = displayNumber;
+        displayNumber = operate(operator, first, second);
+        input = document.querySelector('.field');
+        input.textContent = displayNumber;
+        result = displayNumber;
+        resetAllexceptresult();
+    }
+
+    function RunOperator(){
         if (result !== null){
             first = result;
             operator = this.id;
@@ -50,7 +67,6 @@ document.addEventListener('DOMContentLoaded', function() {
             displayNumber = null;
             second = null;
         }
-        
     }
 
     let numberButtons = document.querySelectorAll(".number");
@@ -81,38 +97,23 @@ document.addEventListener('DOMContentLoaded', function() {
     let clearField = document.querySelector('#AC');
     clearField.addEventListener('click', function() {
         let input = document.querySelector('.field');
-        input.textContent = ''
-        first = null;
-        displayNumber = null;
-        second = null;
-        operator = null;
-        input = null;
+        input.textContent = '';
+        resetAllexceptResult()
         result = null;
     })
     
     let addOperator = document.querySelector('#plus');
-    addOperator.addEventListener('click', firstNumandOperator);
+    addOperator.addEventListener('click', RunOperator);
 
     let minusOperator = document.querySelector('#minus');
-    minusOperator.addEventListener('click', firstNumandOperator);
+    minusOperator.addEventListener('click', RunOperator);
 
     let multiplyOperator = document.querySelector('#times');
-    multiplyOperator.addEventListener('click', firstNumandOperator);
+    multiplyOperator.addEventListener('click', RunOperator);
 
     let divideOperator = document.querySelector('#divide');
-    divideOperator.addEventListener('click', firstNumandOperator);
+    divideOperator.addEventListener('click', RunOperator);
 
     let equal = document.querySelector('#equal');
-    equal.addEventListener('click', function(){
-        second = displayNumber;
-        displayNumber = operate(operator, first, second);
-        input = document.querySelector('.field');
-        input.textContent = displayNumber;
-        result = displayNumber;
-        first = null;
-        displayNumber = null;
-        second = null;
-        operator = null;
-        input = null;
-    })
+    equal.addEventListener('click', equals);
 });
