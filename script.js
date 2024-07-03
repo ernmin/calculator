@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function resetAllexceptresult(){
+    function resetAllexceptResult(){
         first = null;
         displayNumber = null;
         second = null;
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
         input = document.querySelector('.field');
         input.textContent = displayNumber;
         result = displayNumber;
-        resetAllexceptresult();
+        resetAllexceptResult();
     }
 
     function RunOperator(){
@@ -113,6 +113,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let divideOperator = document.querySelector('#divide');
     divideOperator.addEventListener('click', RunOperator);
+
+    //how to run two functions for event listener?
 
     let equal = document.querySelector('#equal');
     equal.addEventListener('click', equals);
