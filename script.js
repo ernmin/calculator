@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function divide(first, second){
+        if (second == 0){
+            return 'Math Error';
+        }
         return Number(first) / Number(second);
     }
 
