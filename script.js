@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function RunOperator(){
+        //fourth type, A + B = C, C + D 
         if (result !== null){
             first = result;
             operator = this.id;
