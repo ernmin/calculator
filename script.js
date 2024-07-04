@@ -53,9 +53,14 @@ document.addEventListener('DOMContentLoaded', function() {
             operator = this.id;
             displayNumber = null;
         }
-        //first expression, A + B = C OK!
-        else if (first === null){
+        //first type, A + B = C OK!
+        else if (first === null && operator === null){
             first = displayNumber;
+            operator = this.id;
+            displayNumber = null;
+        }
+        // third type, A + (change operator) - B = C
+        else if (first !== null && operator !== null && displayNumber === null){
             operator = this.id;
             displayNumber = null;
         }
