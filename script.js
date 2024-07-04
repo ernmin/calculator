@@ -39,7 +39,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function equals(){
-        second = displayNumber;
+        if (displayNumber === null){
+            second = first;
+        }
+        else {
+            second = displayNumber;
+        }
         displayNumber = operate(operator, first, second);
         input = document.querySelector('.field');
         input.textContent = displayNumber;
