@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function equals(){
         if (displayNumber === null){
-            second = first;
+            second = first; // if equals is pressed after an operator instead of a number
         }
         else {
             second = displayNumber;
