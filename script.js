@@ -53,20 +53,23 @@ document.addEventListener('DOMContentLoaded', function() {
             operator = this.id;
             displayNumber = null;
         }
+        //first expression, A + B = C OK!
         else if (first === null){
             first = displayNumber;
             operator = this.id;
             displayNumber = null;
         }
-        else if (first !== null){
+        //second type, A + B + C / D = E OK!
+        else if (first !== null && operator !== null){
             second = displayNumber;
-            operator = this.id;
             first = operate(operator, first, second);
+            operator = this.id; // use old operator then change the operator to the current operator
             input = document.querySelector('.field');
             input.textContent = first;
             displayNumber = null;
             second = null;
         }
+        
     }
 
     let numberButtons = document.querySelectorAll(".number");
@@ -104,6 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     let addOperator = document.querySelector('#plus');
     addOperator.addEventListener('click', RunOperator);
+    //addOperator.addEventListener('click', equals);
 
     let minusOperator = document.querySelector('#minus');
     minusOperator.addEventListener('click', RunOperator);
