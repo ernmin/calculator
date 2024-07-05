@@ -126,6 +126,14 @@ document.addEventListener('DOMContentLoaded', function() {
         resetAllexceptResult()
         result = null;
     })
+
+    let backspace = document.querySelector('#backspace');
+    backspace.addEventListener('pointerdown', function (){
+        let tempNum = displayNumber.slice(0,displayNumber.length - 1);
+        displayNumber = tempNum;
+        let input = document.querySelector('.field');
+        input.textContent = displayNumber;
+    })
     
     let addOperator = document.querySelector('#plus');
     addOperator.addEventListener('pointerdown', RunOperator);
