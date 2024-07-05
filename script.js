@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let input = null;
     let result = null;
     for (let i = 0; i < numberButtons.length; i++){
-        numberButtons[i].addEventListener('click', function() {
+        numberButtons[i].addEventListener('pointerdown', function() {
             text = i.toString();
             if(displayNumber === null || result !== null){
                 result = null;
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     let clearField = document.querySelector('#AC');
-    clearField.addEventListener('click', function() {
+    clearField.addEventListener('pointerdown', function() {
         let input = document.querySelector('.field');
         input.textContent = '';
         resetAllexceptResult()
@@ -120,20 +120,20 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     
     let addOperator = document.querySelector('#plus');
-    addOperator.addEventListener('click', RunOperator);
+    addOperator.addEventListener('pointerdown', RunOperator);
     //addOperator.addEventListener('click', equals);
 
     let minusOperator = document.querySelector('#minus');
-    minusOperator.addEventListener('click', RunOperator);
+    minusOperator.addEventListener('pointerdown', RunOperator);
 
     let multiplyOperator = document.querySelector('#times');
-    multiplyOperator.addEventListener('click', RunOperator);
+    multiplyOperator.addEventListener('pointerdown', RunOperator);
 
     let divideOperator = document.querySelector('#divide');
-    divideOperator.addEventListener('click', RunOperator);
+    divideOperator.addEventListener('pointerdown', RunOperator);
 
     //how to run two functions for event listener?
 
     let equal = document.querySelector('#equal');
-    equal.addEventListener('click', equals);
+    equal.addEventListener('pointerdown', equals);
 });
