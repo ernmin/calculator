@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function roundOff(num){
-        if(num % 1 != 0 && num.toString().split(".")[1].length > 6){
+        if(num % 1 != 0 && num.toString().split(".")[1].length > 8){
                 return num.toFixed(6);
         }
         else {
