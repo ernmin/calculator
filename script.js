@@ -63,6 +63,24 @@ document.addEventListener('DOMContentLoaded', function() {
         resetAllexceptResult();
     }
 
+    function decimalpoint(){
+        if(displayNumber === null){
+            displayNumber = '0.';
+            let input = document.querySelector('.field');
+            input.textContent = displayNumber;
+            
+            return;
+        }
+        else if(displayNumber.includes(".")){
+            return;
+        }
+        else{
+            displayNumber += '.';
+            let input = document.querySelector('.field');
+            input.textContent = displayNumber;
+        }   
+    }
+
     function RunOperator(){
         //fourth type, A + B = C, C + D 
         if (result !== null){
@@ -152,4 +170,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let equal = document.querySelector('#equal');
     equal.addEventListener('pointerdown', equals);
+
+    let decimal = document.querySelector('#decimal');
+    decimal.addEventListener('pointerdown', decimalpoint);
 });
