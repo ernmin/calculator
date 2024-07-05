@@ -20,19 +20,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function operate(operator, first, second){
         if(operator === 'plus'){
-            return add(first, second);
+            return roundOff(add(first, second));
         }
         else if(operator === 'minus'){
-            return subtract(first, second);
+            return roundOff(subtract(first, second));
         }
         else if(operator === 'times'){
-            return multiply(first, second);
+            return roundOff(multiply(first, second));
         }
         else if(operator === 'divide'){
-            return divide(first, second);
+            return roundOff(divide(first, second));
         }
     }
 
+    function roundOff(num){
+        if(num % 1 != 0 && num.toString().split(".")[1].length > 6){
+                return num.toFixed(6);
+        }
+        else {
+            return num;
+        }
+    }
     function resetAllexceptResult(){
         first = null;
         displayNumber = null;
