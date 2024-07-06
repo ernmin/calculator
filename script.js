@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let result = null;
     for (let i = 0; i < numberButtons.length; i++){
         numberButtons[i].addEventListener('pointerdown', function() {
-            text = i.toString();
+            text = numberButtons[i].textContent;
             if(displayNumber === null || result !== null){
                 result = null;
                 displayNumber = text;
