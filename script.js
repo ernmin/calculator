@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
         else {
             return num;
         }
+
     }
     function resetAllexceptResult(){
         first = null;
@@ -58,7 +59,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         displayNumber = operate(operator, first, second);
         input = document.querySelector('.field');
-        input.textContent = displayNumber;
+        if(displayNumber.toString().length<15){
+            input.textContent = displayNumber;
+        }
+        else{
+            input.textContent = 'Too Long';
+        }
+        
         result = displayNumber;
         resetAllexceptResult();
     }
@@ -126,10 +133,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 result = null;
                 displayNumber = text;
             }
-            else if (first !== null && operator !== null){
+            else if (first !== null && operator !== null && displayNumber.length < 16){
                 displayNumber += text;
             }
-            else{
+            else if (displayNumber.length < 16){
                 displayNumber += text;
             }
             input = document.querySelector('.field');
