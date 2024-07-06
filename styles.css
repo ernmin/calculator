@@ -1,9 +1,18 @@
-.calculator{
+.page{
     display:flex;
+    justify-content: center;
+}
+.calculator{
+    display: flex;
     flex-direction: column;
     align-items: center;
+    border:thin solid black;
+    width: 450px;
+    
 }
+    
 .field {
+    display:flex;
     border:thin solid black;
     height: 50px;
     width: 410px;
@@ -12,8 +21,56 @@
     text-align: right;
 }
 
+.buttons{
+    flex-direction: column;
+    align-items: center;
+}
+
 button {
     min-width: 100px;
     min-height: 100px;
     font-size: 30px;
+    margin:2px
 }
+
+.deleteRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.sevenRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.fourRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.oneRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.zeroRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#AC{
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+#equal{
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+}
+    
